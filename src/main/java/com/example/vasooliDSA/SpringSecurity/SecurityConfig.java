@@ -75,7 +75,11 @@ public class SecurityConfig {
     @Bean
     CorsConfigurationSource corsConfigurationSource(){
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigins(Arrays.asList("http://localhost:3000"));
+        // Add your Vercel frontend URL and keep your local development URL
+        corsConfiguration.setAllowedOrigins(Arrays.asList(
+                "http://localhost:3000",
+                "https://vasooli-dsa.vercel.app" // Add your Vercel frontend domain here
+        ));
         corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         corsConfiguration.setAllowedHeaders(Arrays.asList("Authorization","Content-Type"));
         corsConfiguration.setExposedHeaders(Arrays.asList("Authorization"));
